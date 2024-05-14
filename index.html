@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add Item</title>
     <link rel="stylesheet" href="style.css">
-   
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="container">
       <div class="row">
         <label>
           Enter Item*
-          <input type="text" id="itemName" name="itemName" />
+          <input type="text" id="itemName" name="itemName"/>
         </label>
         <br/>
         <label>
@@ -24,11 +24,11 @@
           <button id="clearItem" onclick="ClearItem()">Add Item</button>
         </div>
         <div class="outputArea">
-          <p class="itemLIst">Here display all item: Apple 10rs.</p>
-          <h2 class="totalPrice">Total Price: 10Rs.</h2>
+          <div id="ItemNames"></div>
+        
         </div>
       </div>
     </div>
   </body>
   <script src="app.js"></script>
-</html>
+  </html>
