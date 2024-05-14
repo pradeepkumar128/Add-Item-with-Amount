@@ -30,5 +30,5 @@ itemsArray.forEach(function (item) {
 
 
 function ClearItem() {
-  // Clear function
+  
 }
