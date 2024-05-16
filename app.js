@@ -45,7 +45,9 @@ function AddItembtn() {
   localStorage.setItem("Items", JSON.stringify(itemsArray));
 
   // Update display with the newly added item
-  updateDisplay();
+  setTimeout(()=>{
+    updateDisplay();
+  },2000);
 
   // Clear input fields
   itemNameInput.value = "";

@@ -79,3 +79,25 @@ body {
   font-weight: bold;
   margin-top: 10px;
 }
+
+@keyframes cornerGradient {
+  0% {
+    background: linear-gradient(to top left, #ff8800a0, #e52e71e6);
+  }
+  25% {
+    background: linear-gradient(to top right, #00b09b, #96c93d);
+  }
+  50% {
+    background: linear-gradient(to bottom left, #0051d460, #43f7bb);
+  }
+  75% {
+    background: linear-gradient(to bottom right, #1e9600, #ffe000);
+  }
+  100% {
+    background: linear-gradient(to top left, #ff8a00, #e52e71);
+  }
+}
+
+body {
+  animation: cornerGradient 10s infinite alternate;
+}
