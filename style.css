@@ -61,17 +61,9 @@ body {
   margin-bottom: 5px;
 }
 
-.item h2 {
-  margin: 0;
+.item span {
+  display: inline-block;
 }
-
-.item h3 {
-  margin-top: 5px;
-  margin-bottom: 0;
-  color: #666;
-}
-
-/* Your existing CSS styles */
 
 .remove-button {
   background-color: #ff6961;
@@ -81,4 +73,9 @@ body {
   border-radius: 3px;
   cursor: pointer;
   margin-left: 10px;
+}
+
+.total-amount {
+  font-weight: bold;
+  margin-top: 10px;
 }
