@@ -1,5 +1,5 @@
-let itemName = document.querySelector("#itemName");
-let itemAmnt = document.querySelector("#itemAmnt");
+let itemNameInput = document.querySelector("#itemName");
+let itemAmntInput = document.querySelector("#itemAmnt");
 let ItemNames = document.querySelector("#ItemNames");
 let ItemAmmount = document.querySelector("#ItemAmmount");
 
@@ -28,9 +28,17 @@ function updateDisplay() {
 }
 
 function AddItembtn() {
+  let itemName = itemNameInput.value.trim();
+  let itemAmnt = itemAmntInput.value.trim();
+
+  if (!itemName || !itemAmnt || isNaN(itemAmnt) || parseInt(itemAmnt) <= 0) {
+    alert("Please enter valid item name and amount.");
+    return;
+  }
+
   let newItem = {
-    name: itemName.value,
-    amount: itemAmnt.value,
+    name: itemName,
+    amount: itemAmnt,
   };
 
   itemsArray.push(newItem);
@@ -40,8 +48,8 @@ function AddItembtn() {
   updateDisplay();
 
   // Clear input fields
-  itemName.value = "";
-  itemAmnt.value = "";
+  itemNameInput.value = "";
+  itemAmntInput.value = "";
 }
 
 function ClearItem() {
@@ -59,3 +67,6 @@ function removeItem(index) {
 }
 
 updateDisplay();
+
+document.getElementById("addItem").addEventListener("click", AddItembtn);
+document.getElementById("clearItem").addEventListener("click", ClearItem);
