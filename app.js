@@ -1,31 +1,4 @@
-let itemName = document.querySelector("#itemName");
-let itemAmnt = document.querySelector("#itemAmnt");
-let ItemNames = document.querySelector("#ItemNames");
-let ItemAmmount = document.querySelector("#ItemAmmount");
-
-let itemsArray = JSON.parse(localStorage.getItem("Items")) || [];
-
-function updateDisplay() {
-  // Clear existing items
-  ItemNames.innerHTML = "";
-
-  // Initialize total amount
-  let totalAmnt = 0;
-
-  // Loop through each item in the array
-  itemsArray.forEach(function (item) {
-    // Append item name and amount to the display
-    $("#ItemNames").append(`<div class="item"><h2>${item.name}</h2><h3>${item.amount}</h3></div>`);
-
-    // Update total amount
-    totalAmnt += parseInt(item.amount);
-  });
-
-  // Display total amount
-  ItemAmmount.textContent = `Total Amount: ${totalAmnt}`;
-}
-
-updateDisplay();
+// Your existing JavaScript code
 
 function AddItembtn() {
   let newItem = {
@@ -51,3 +24,34 @@ function ClearItem() {
   // Update display to clear items
   updateDisplay();
 }
+
+function removeItem(index) {
+  itemsArray.splice(index, 1);
+  localStorage.setItem("Items", JSON.stringify(itemsArray));
+  updateDisplay();
+}
+
+function updateDisplay() {
+  // Clear existing items
+  ItemNames.innerHTML = "";
+
+  // Initialize total amount
+  let totalAmnt = 0;
+
+  // Loop through each item in the array
+  itemsArray.forEach(function (item, index) {
+    // Append item name, amount, and remove button to the display
+    $("#ItemNames").append(
+      `<div class="item"><span>${item.name} - ${item.amount}</span><button class="remove-button" onclick="removeItem(${index})">Remove</button></div>`
+    );
+
+    // Update total amount
+    totalAmnt += parseInt(item.amount);
+  });
+
+  // Display total amount
+  ItemAmmount.textContent = `Total Amount: ${totalAmnt}`;
+}
+
+let itemsArray = JSON.parse(localStorage.getItem("Items")) || [];
+updateDisplay();
