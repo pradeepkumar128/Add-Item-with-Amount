@@ -1,0 +1,26 @@
+.item {
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     padding: 10px;
+     margin-bottom: 5px;
+   }
+   
+   .item h2 {
+     margin: 0;
+   }
+   
+   .item h3 {
+     margin-top: 5px;
+     margin-bottom: 0;
+     color: #666;
+   }
+   
+   #ItemNames {
+     margin-top: 20px;
+   }
+   
+   #ItemAmmount {
+     margin-top: 20px;
+     font-weight: bold;
+   }
+   

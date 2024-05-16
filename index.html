@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Item</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <label>
-          Enter Item*
-          <input type="text" id="itemName" name="itemName"/>
-        </label>
-        <br/>
-        <label>
-          Enter Ammount*
-          <input type="text" id="itemAmnt" name="itemAmnt" />
-        </label>
-        <div class="btn area">
-          <button id="addItem" onclick="AddItembtn()">Add Item</button>
-          <button id="clearItem" onclick="ClearItem()">Add Item</button>
-        </div>
-        <div class="outputArea">
-          <div id="ItemNames"></div>
-        
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Item</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <label class="input-label">
+        Enter Item*
+        <input type="text" id="itemName" name="itemName" class="input-field"/>
+      </label>
+      <br/>
+      <label class="input-label">
+        Enter Amount*
+        <input type="text" id="itemAmnt" name="itemAmnt" class="input-field"/>
+      </label>
+      <div class="btn-area">
+        <button id="addItem" onclick="AddItembtn()" class="action-button">Add Item</button>
+        <button id="clearItem" onclick="ClearItem()" class="action-button">Clear Item</button>
+      </div>
+      <div class="output-area">
+        <div id="ItemNames" class="item-list"></div>
       </div>
     </div>
-  </body>
-  <script src="app.js"></script>
-  </html>
+  </div>
+</body>
+<script src="app.js"></script>
+</html>

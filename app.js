@@ -3,10 +3,30 @@ let itemAmnt = document.querySelector("#itemAmnt");
 let ItemNames = document.querySelector("#ItemNames");
 let ItemAmmount = document.querySelector("#ItemAmmount");
 
-let sumValue= 0;
-let totalAmnt = 0;
-let itemsArray;
-console.log(itemsArray);
+let itemsArray = JSON.parse(localStorage.getItem("Items")) || [];
+
+function updateDisplay() {
+  // Clear existing items
+  ItemNames.innerHTML = "";
+
+  // Initialize total amount
+  let totalAmnt = 0;
+
+  // Loop through each item in the array
+  itemsArray.forEach(function (item) {
+    // Append item name and amount to the display
+    $("#ItemNames").append(`<div class="item"><h2>${item.name}</h2><h3>${item.amount}</h3></div>`);
+
+    // Update total amount
+    totalAmnt += parseInt(item.amount);
+  });
+
+  // Display total amount
+  ItemAmmount.textContent = `Total Amount: ${totalAmnt}`;
+}
+
+updateDisplay();
+
 function AddItembtn() {
   let newItem = {
     name: itemName.value,
@@ -15,20 +35,19 @@ function AddItembtn() {
 
   itemsArray.push(newItem);
   localStorage.setItem("Items", JSON.stringify(itemsArray));
+
+  // Update display with the newly added item
+  updateDisplay();
+
+  // Clear input fields
+  itemName.value = "";
+  itemAmnt.value = "";
 }
-itemsArray = JSON.parse(localStorage.getItem("Items")) || [];
-
-itemsArray.forEach(function (item) {
-   
-  $("#ItemNames").append(`<h2>${item.name}</h2>`);
-  $("#ItemNames").append(`<h3>${item.amount}</h3>`);
-  sumValue = parseInt(item.amount);
-  totalAmnt = sumValue + totalAmnt;
-  console.log(totalAmnt)
-});
-
-
 
 function ClearItem() {
-  
+  // Clear items from local storage and array
+  localStorage.removeItem("Items");
+  itemsArray = [];
+  // Update display to clear items
+  updateDisplay();
 }
